@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Miris_Songsaver
+namespace Miris_song_watcher
 {
     static class Program
     {

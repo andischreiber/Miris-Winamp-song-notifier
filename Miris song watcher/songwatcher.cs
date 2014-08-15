@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using WinampFrontEndLib;
 
-namespace Miris_Songsaver
+namespace Miris_song_watcher
 {
     public partial class songwatcher : Form
     {
@@ -39,7 +39,7 @@ namespace Miris_Songsaver
                 WAstatus = WinampLib.GetPlaybackStatus();       // Winamp states: 3=pause,1=play,0=stop
                 switch (WAstatus)
                 {
-                    case 1: // Winamp playing
+                    case 1:                                     // Winamp playing
                         strWATitlePast = strWATitle;
                         strWATitle = WinampLib.GetCurrentSongTitle();
                         lbl_CurrentTitle.Text = strWATitle;
@@ -78,7 +78,7 @@ namespace Miris_Songsaver
                             }
                         }
                         break;
-                    case 3: // Winamp paused
+                    case 3:                                                             // Winamp paused
                         lbl_CurrentTitle.Text = "P A U S E";
                         break;
                     default:
@@ -94,14 +94,14 @@ namespace Miris_Songsaver
 
         private void DLCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            // download completed - play sound
+            // download completed - now play sound
             if (e.Cancelled == true)
             {
                 Console.Beep();
             }
             else
             {
-                // voice output section
+                // voice output
                 axWindowsMediaPlayer1.URL = "speech.mp3";
                 axWindowsMediaPlayer1.Ctlcontrols.play();
             }

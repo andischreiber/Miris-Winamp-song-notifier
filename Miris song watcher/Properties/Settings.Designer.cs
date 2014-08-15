@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Miris_Songsaver.Properties
+namespace Miris_song_watcher.Properties
 {
 
 

@@ -1,4 +1,4 @@
-﻿namespace Miris_Songsaver
+﻿namespace Miris_song_watcher
 {
     partial class songwatcher
     {
