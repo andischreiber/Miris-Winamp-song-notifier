@@ -12,7 +12,7 @@ Still some bugs in there. ;)
 Requirements
 ------------
 - Windows with .NET Framework 4
-- Visual Studio 2010 (C#)
+- Visual Studio 2010 (C#) (you must add WinampFrontEndLib.dll to references)
 - Winamp
 
 License
