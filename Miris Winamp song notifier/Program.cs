@@ -15,7 +15,7 @@ namespace Miris_song_watcher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new songwatcher());
+            Application.Run(new songnotifier());
         }
     }
 }

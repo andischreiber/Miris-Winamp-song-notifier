@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miris song watcher", "Miris song watcher\Miris song watcher.csproj", "{296A9EB6-B5A4-4694-ADBF-F80FF1A55B3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miris song notifier", "Miris Winamp song notifier\Miris song notifier.csproj", "{296A9EB6-B5A4-4694-ADBF-F80FF1A55B3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

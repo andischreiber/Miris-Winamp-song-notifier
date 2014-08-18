@@ -11,18 +11,19 @@ using WinampFrontEndLib;
 
 namespace Miris_song_watcher
 {
-    public partial class songwatcher : Form
+    public partial class songnotifier : Form
     {
         private string strWATitlePast;
         private string strWATitle;
         private string strWATitleTalk;
         private int WAstatus;
         private string strTTSURL;
+        private string strLanguage = "en";
 
         public System.Windows.Forms.Timer t1 = new System.Windows.Forms.Timer();
         WebClient wc;
 
-        public songwatcher()
+        public songnotifier()
         {
             InitializeComponent();
             //Timer
@@ -30,6 +31,7 @@ namespace Miris_song_watcher
             t1.Tick += new EventHandler(t1_Tick);               // Eventhandler timer
             t1.Start();
             axWindowsMediaPlayer1.settings.volume = 100;        // max. volume
+            but_lang_en.Checked = true;                         // default
         }
 
         void t1_Tick(object sender, EventArgs e)
@@ -51,8 +53,18 @@ namespace Miris_song_watcher
                                 axWindowsMediaPlayer1.Ctlcontrols.stop();
                             }
                             axWindowsMediaPlayer1.close();
-                            strWATitleTalk = strWATitle.Replace("&", "%26");            // correct URL chars
-                            strTTSURL = "http://translate.google.com/translate_tts?tl=en&q=" + strWATitleTalk;
+                            // URL encoding
+                            strWATitleTalk = strWATitle.Replace("&", "%26");
+                            strWATitleTalk = strWATitleTalk.Replace("ä", "ae");
+                            strWATitleTalk = strWATitleTalk.Replace("ö", "oe");
+                            strWATitleTalk = strWATitleTalk.Replace("ü", "ue");
+                            strWATitleTalk = strWATitleTalk.Replace("Ä", "Ae");
+                            strWATitleTalk = strWATitleTalk.Replace("Ö", "Oe");
+                            strWATitleTalk = strWATitleTalk.Replace("Ü", "Ue");
+                            // ... tbd
+
+                            strTTSURL = "http://translate.google.com/translate_tts?tl=" + strLanguage + "&q=" + strWATitleTalk;
+                            //MessageBox.Show(strWATitleTalk);                          // debug
 
                             if ((strWATitle.Length < 100) && (cb_voice.Checked))        // max. length 100 chars
                             {
@@ -104,6 +116,46 @@ namespace Miris_song_watcher
                 // voice output
                 axWindowsMediaPlayer1.URL = "speech.mp3";
                 axWindowsMediaPlayer1.Ctlcontrols.play();
+            }
+        }
+
+        private void but_english_CheckedChanged(object sender, EventArgs e)
+        {
+            if (but_lang_en.Checked)
+            {
+                but_lang_other.Checked = false;
+                tb_language.Enabled = false;
+                strLanguage = "en";
+            }
+        }
+
+        private void but_ownlang_CheckedChanged(object sender, EventArgs e)
+        {
+            if (but_lang_other.Checked)
+            {
+                but_lang_en.Checked = false;
+                tb_language.Enabled = true;
+                strLanguage = tb_language.Text;
+            }
+        }
+
+        private void tb_language_TextChanged(object sender, EventArgs e)
+        {
+            strLanguage = tb_language.Text;
+        }
+
+        private void cb_voice_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!cb_voice.Checked)
+            {
+                but_lang_en.Checked = false;
+                but_lang_other.Checked = false;
+                tb_language.Enabled = false;
+            }
+            else
+            {
+                but_lang_en.Checked = true;
+                strLanguage = "en";
             }
         }
     }

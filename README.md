@@ -1,18 +1,18 @@
-==================
-Miris-song-watcher
-==================
+==========================
+Miris-Winamp-song-notifier
+==========================
 
 Programmed by Andreas Schreiber
 
 About
 -----
-This code shows the current Winamp Title and does a voice output using google's translator service.
-Still some bugs in there. ;)
+This code shows the current Winamp Title and does a voice output using google´s translator service.
+I have no idea if this makes any sense but it´s usefull if you want to know the song title while chilling on couch.
 
 Requirements
 ------------
 - Windows with .NET Framework 4
-- Visual Studio 2010 (C#) (you must add WinampFrontEndLib.dll to references)
+- Visual Studio 2010 (C#) (don´t forget to add WinampFrontEndLib.dll to references)
 - Winamp
 
 License
