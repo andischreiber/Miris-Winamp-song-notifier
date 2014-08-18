@@ -109,7 +109,7 @@
             this.but_lang_other.TabStop = true;
             this.but_lang_other.Text = "other";
             this.but_lang_other.UseVisualStyleBackColor = true;
-            this.but_lang_other.CheckedChanged += new System.EventHandler(this.but_ownlang_CheckedChanged);
+            this.but_lang_other.CheckedChanged += new System.EventHandler(this.but_lang_other_CheckedChanged);
             // 
             // but_lang_en
             // 

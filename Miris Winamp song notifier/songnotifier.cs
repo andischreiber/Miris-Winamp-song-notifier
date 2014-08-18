@@ -61,7 +61,7 @@ namespace Miris_song_watcher
                             strWATitleTalk = strWATitleTalk.Replace("Ä", "Ae");
                             strWATitleTalk = strWATitleTalk.Replace("Ö", "Oe");
                             strWATitleTalk = strWATitleTalk.Replace("Ü", "Ue");
-                            // ... tbd
+                            // ...
 
                             strTTSURL = "http://translate.google.com/translate_tts?tl=" + strLanguage + "&q=" + strWATitleTalk;
                             //MessageBox.Show(strWATitleTalk);                          // debug
@@ -129,7 +129,7 @@ namespace Miris_song_watcher
             }
         }
 
-        private void but_ownlang_CheckedChanged(object sender, EventArgs e)
+        private void but_lang_other_CheckedChanged(object sender, EventArgs e)
         {
             if (but_lang_other.Checked)
             {
